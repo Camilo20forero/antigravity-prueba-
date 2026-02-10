@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Museo de Trajes VR - Colección Afro</title>
+    <meta name="description"
+        content="Experiencia virtual inmersiva de la colección Afro del Museo de Trajes de Bogotá.">
+    <!-- A-Frame Library -->
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- UI Overlay -->
+    <div id="ui-container">
+        <header>
+            <h1>MUSEO DE TRAJES</h1>
+            <p>Colección de Prendas Afro-Colombianas</p>
+        </header>
+
+        <div id="info-panel" class="hidden">
+            <button id="close-btn">&times;</button>
+            <div id="info-content">
+                <h2 id="item-title">Nombre del Traje</h2>
+                <p id="item-description">Detalles sobre la historia y fabricación...</p>
+                <div id="item-details">
+                    <h3>Detalles de Fabricación</h3>
+                    <p id="item-fabrication">Información técnica del traje...</p>
+                </div>
+            </div>
+        </div>
+
+        <nav id="controls-hint">
+            <p>VR: WASD para moverte | Mouse para mirar y seleccionar</p>
+        </nav>
+    </div>
+
+    <!-- 3D Scene -->
+    <a-scene renderer="antialias: true; colorManagement: true;" cursor="rayOrigin: mouse"
+        raycaster="objects: .interactive">
+
+        <!-- Assets -->
+        <a-assets>
+            <!-- Here we will add the central model later -->
+            <!-- <a-asset-item id="garment-main" src="models/traje_afro.glb"></a-asset-item> -->
+        </a-assets>
+
+        <!-- Environment -->
+        <a-sky id="sky" color="#050505"></a-sky>
+        <a-plane id="floor" position="0 0 0" rotation="-90 0 0" width="50" height="50" color="#111"
+            roughness="1"></a-plane>
+
+        <!-- Lighting (Museum Style) -->
+        <a-entity light="type: ambient; color: #444; intensity: 0.5"></a-entity>
+
+        <!-- Spotlight on the main piece -->
+        <a-entity light="type: spot; intensity: 2; distance: 10; angle: 45; penumbra: 0.5; castShadow: true"
+            position="0 4 0" rotation="-90 0 0"></a-entity>
+
+        <!-- Central Pedestal & Exhibit -->
+        <a-entity id="main-exhibit" position="0 0 -5">
+            <!-- Pedestal -->
+            <a-box position="0 0.25 0" width="1.5" height="0.5" depth="1.5" color="#1a1a1a"></a-box>
+
+            <!-- Main Model Placeholder -->
+            <a-entity id="exhibit-central" position="0 1 0" class="interactive"
+                geometry="primitive: box; height: 1.8; width: 0.6; depth: 0.4" material="color: #c9a45c"
+                animation__rotate="property: rotation; to: 0 360 0; loop: true; dur: 20000; easing: linear">
+                <a-text value="Traje Afro Central" position="0 1.2 0" align="center" width="4" color="#FFF"></a-text>
+            </a-entity>
+        </a-entity>
+
+        <!-- Secondary Information Panels (3D) -->
+        <a-plane position="-3 1.5 -4.5" rotation="0 30 0" width="2" height="1.5" color="#1a1a1a"
+            material="opacity: 0.8; transparent: true">
+            <a-text value="HISTORIA\n\nNuestras raíces afro-colombianas\nson el corazón de esta colección."
+                position="0 0 0.01" align="center" width="1.8" color="#c9a45c"></a-text>
+        </a-plane>
+
+        <a-plane position="3 1.5 -4.5" rotation="0 -30 0" width="2" height="1.5" color="#1a1a1a"
+            material="opacity: 0.8; transparent: true">
+            <a-text value="EL RECORRIDO\n\nDescubre la narrativa a través\nde cada tejido y costura."
+                position="0 0 0.01" align="center" width="1.8" color="#c9a45c"></a-text>
+        </a-plane>
+
+        <!-- Camera -->
+        <a-entity id="rig" position="0 1.6 0">
+            <a-camera look-controls="pointerLockEnabled: false" wasd-controls></a-camera>
+        </a-entity>
+    </a-scene>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
