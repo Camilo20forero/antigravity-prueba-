@@ -55,25 +55,41 @@
         <a-entity environment="preset: contact; groundColor: #445; grid: cross; lighting: point;"></a-entity>
 
         <!-- 3D MODEL: Ahora cargando el traje real -->
-        <a-entity gltf-model="#modelo-traje" position="0 0 -4" scale="1 1 1"></a-entity>
+        <a-entity id="traje-afro" gltf-model="#modelo-traje" position="0 0 -4" scale="1 1 1" class="clickable">
 
-        <!-- Posición del maniquí (manteniendo el ID por si lo necesitamos luego) -->
-        <a-entity id="punto-traje" position="0 0 -4">
-            <!-- El maniquí gris ha sido reemplazado por el modelo real -->
+            <!-- PANEL DE INFORMACIÓN NARRATIVA -->
+            <a-entity id="info-panel" position="1.5 1.5 0" rotation="0 -30 0">
+                <!-- Fondo del panel -->
+                <a-plane width="2.5" height="1.8" color="#111" opacity="0.95"></a-plane>
+
+                <!-- Contenido -->
+                <a-text value="COLECCION AFRO-COLOMBIANA" align="center" position="0 0.7 0.02" width="2.2"
+                    color="#FFD700"></a-text>
+
+                <a-text value="HISTORIA" position="-1.1 0.4 0.02" width="1.5" color="#FFD700"></a-text>
+                <a-text value="Representa la resistencia y tradicion de las comunidades de Bogota."
+                    position="-1.1 0.25 0.02" width="2.1" color="white" wrap-count="35"></a-text>
+
+                <a-text value="FABRICACION" position="-1.1 -0.1 0.02" width="1.5" color="#FFD700"></a-text>
+                <a-text value="Tejidos manuales con fibras naturales y simbolismos ancestrales."
+                    position="-1.1 -0.25 0.02" width="2.1" color="white" wrap-count="35"></a-text>
+
+                <a-text value="MUSEO DE TRAJES" position="0 -0.7 0.02" align="center" width="1.5" color="#888"></a-text>
+            </a-entity>
         </a-entity>
-
-
-        <!-- Texto informativo -->
-        <a-entity text="value: Proximamente: Traje Coleccion Afro; align: center; width: 4" position="0 2.5 0">
-        </a-entity>
-
 
         <!-- Player / Camera -->
         <a-entity id="rig" position="0 0 1">
             <a-camera look-controls wasd-controls position="0 1.6 0">
-                <a-cursor color="#FAFAFA"></a-cursor>
+                <!-- Cursor interactivo -->
+                <a-cursor id="cursor"
+                    animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+                    event-set__mouseenter="_event: mouseenter; color: #FFD700"
+                    event-set__mouseleave="_event: mouseleave; color: black" raycaster="objects: .clickable">
+                </a-cursor>
             </a-camera>
         </a-entity>
+
 
         <!-- Luces adicionales -->
         <a-light type="spot" color="white" intensity="0.8" position="0 4 -4" rotation="-90 0 0"></a-light>
