@@ -41,6 +41,7 @@
             <a-asset-item id="modelo-traje" src="assets/traje afro pesado.glb"></a-asset-item>
             <a-asset-item id="modelo-traje-2" src="assets/traje 2 falda roja.glb"></a-asset-item>
             <a-asset-item id="modelo-traje-3" src="assets/traje 3 verde.glb"></a-asset-item>
+            <a-asset-item id="modelo-traje-4" src="assets/traje 4 morado.glb"></a-asset-item>
         </a-assets>
 
         <!-- AMBIENTE Y LUCES (Efecto Galería Monumental) -->
@@ -59,46 +60,17 @@
         <a-plane position="0 0 0" rotation="-90 0 0" width="40" height="40" color="#555" roughness="0.6" metalness="0.2"
             shadow="receive: true"></a-plane>
 
-        <!-- Muros monumentales de concreto con detalles en madera -->
-        <a-box position="0 10 -15" width="40" height="20" depth="1" color="#444" roughness="1">
-            <a-box position="0 0 0.6" width="40" height="1" depth="0.1" color="#5d4037"></a-box> <!-- Detalle Madera -->
-        </a-box>
-
-        <a-box position="-15 10 0" width="1" height="20" depth="40" color="#333" roughness="1">
-            <a-box position="0.6 0 0" width="0.1" height="20" depth="1" color="#5d4037" repeat="1 20"></a-box>
-            <!-- Detalle Madera -->
-        </a-box>
-
-        <a-box position="15 10 0" width="1" height="20" depth="40" color="#333" roughness="1">
-            <a-box position="-0.6 0 0" width="0.1" height="20" depth="1" color="#5d4037" repeat="1 20"></a-box>
-        </a-box>
+        <!-- Muros monumentales de concreto -->
+        <a-box position="0 10 -15" width="40" height="20" depth="1" color="#444" roughness="1"></a-box>
+        <!-- Muro fondo -->
+        <a-box position="-15 10 0" width="1" height="20" depth="40" color="#333" roughness="1"></a-box>
+        <!-- Muro Izq -->
+        <a-box position="15 10 0" width="1" height="20" depth="40" color="#333" roughness="1"></a-box> <!-- Muro Der -->
 
         <!-- Pilares Masivos -->
         <a-box position="-10 10 -10" width="3" height="20" depth="3" color="#3a3a3a"></a-box>
         <a-box position="10 10 -10" width="3" height="20" depth="3" color="#3a3a3a"></a-box>
-
-        <!-- Pilares Masivos -->
         <a-box position="-10 10 10" width="3" height="20" depth="3" color="#3a3a3a"></a-box>
-
-        <!-- VEGETACIÓN (BIOFILIA) -->
-        <!-- Maceteros de concreto con palmeras estilizadas -->
-        <a-entity position="-12 0 -5">
-            <a-box width="2" height="1" depth="2" color="#444" position="0 0.5 0"></a-box>
-            <a-entity position="0 1 0">
-                <a-cylinder radius="0.1" height="3" color="#3e2723"></a-cylinder> <!-- Tronco -->
-                <a-sphere color="#2e7d32" radius="1.2" scale="1 0.2 1" position="0 1.5 0"></a-sphere> <!-- Hojas -->
-                <a-sphere color="#2e7d32" radius="1" scale="1 0.2 1" position="0 1.8 0" rotation="0 45 0"></a-sphere>
-            </a-entity>
-        </a-entity>
-
-        <a-entity position="12 0 -5">
-            <a-box width="2" height="1" depth="2" color="#444" position="0 0.5 0"></a-box>
-            <a-entity position="0 1 0">
-                <a-cylinder radius="0.1" height="3" color="#3e2723"></a-cylinder>
-                <a-sphere color="#2e7d32" radius="1.2" scale="1 0.2 1" position="0 1.5 0"></a-sphere>
-                <a-sphere color="#2e7d32" radius="1" scale="1 0.2 1" position="0 1.8 0" rotation="0 45 0"></a-sphere>
-            </a-entity>
-        </a-entity>
 
         <!-- Techo con tragaluz (Clerestory effect) -->
         <a-box position="0 20 0" width="40" height="1" depth="40" color="#222"></a-box>
@@ -163,7 +135,7 @@
         <a-entity position="6 0 -10">
             <a-entity mixin="pedestal" position="0 0.4 0"></a-entity>
             <a-entity mixin="vidrio" position="0 2.05 0"></a-entity>
-            <a-entity id="traje-3" gltf-model="#modelo-traje-3" position="0 1.3 0" scale="1.5 1.5 1.5"
+            <a-entity id="traje-3" gltf-model="#modelo-traje-3" position="0 0.3 0" scale="1.5 1.5 1.5"
                 shadow="cast: true" class="clickable">
                 <a-entity id="info-panel-3" position="1.5 1.2 0" rotation="0 -30 0">
                     <a-plane width="2.2" height="1.5" color="#000" opacity="0.8">
@@ -180,12 +152,25 @@
                 castShadow="true"></a-light>
         </a-entity>
 
-        <!-- EXHIBICIÓN 4: Izquierda Cerca -->
+        <!-- EXHIBICIÓN 4: Izquierda Cerca (Traje 4 Morado) -->
         <a-entity position="-8 0 -2">
             <a-entity mixin="pedestal" position="0 0.4 0"></a-entity>
             <a-entity mixin="vidrio" position="0 2.05 0"></a-entity>
-            <a-cylinder position="0 1.6 0" radius="0.4" height="1.5" color="#333" opacity="0.5"></a-cylinder>
-            <!-- Placeholder -->
+            <a-entity id="traje-4" gltf-model="#modelo-traje-4" position="0 1.2 0" scale="1.5 1.5 1.5"
+                shadow="cast: true" class="clickable">
+                <a-entity id="info-panel-4" position="1.5 1.2 0" rotation="0 -30 0">
+                    <a-plane width="2.2" height="1.5" color="#000" opacity="0.8">
+                        <a-text value="TRAJE MORADO CEREMONIAL" align="center" position="0 0.5 0.01" width="2"
+                            color="#fff"></a-text>
+                        <a-text value="HISTORIA: Rituales y celebracion." position="-1 0.2 0.01" width="1.8"
+                            color="#ccc"></a-text>
+                        <a-text value="DETALLES: Terciopelo y bordados." position="-1 -0.1 0.01" width="1.8"
+                            color="#ccc"></a-text>
+                    </a-plane>
+                </a-entity>
+            </a-entity>
+            <a-light type="spot" color="#fff" intensity="0.5" position="0 4 0" rotation="-90 0 0"
+                castShadow="true"></a-light>
         </a-entity>
 
         <!-- EXHIBICIÓN 5: Derecha Cerca -->
