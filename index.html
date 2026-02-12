@@ -44,7 +44,7 @@
             <a-asset-item id="modelo-traje-3" src="assets/traje 3 verde.glb?v=3"></a-asset-item>
             <a-asset-item id="modelo-traje-4" src="assets/traje 4 morado.glb?v=3"></a-asset-item>
             <a-asset-item id="modelo-traje-5" src="assets/traje 5.glb?v=3"></a-asset-item>
-            <a-asset-item id="modelo-marimba" src="assets/Marimba.glb?v=6"></a-asset-item>
+            <a-asset-item id="modelo-marimba" src="assets/Marimba.glb?v=7"></a-asset-item>
 
             <!-- Mixins para vitrinas -->
             <a-mixin id="pedestal" geometry="primitive: cylinder; radius: 0.8; height: 0.8"
@@ -96,7 +96,7 @@
             <a-entity id="traje-principal" gltf-model="#modelo-traje" position="0 0.8 0" scale="1.5 1.5 1.5"
                 shadow="cast: true" class="clickable">
                 <!-- INFO PANEL MINIMALISTA -->
-                <a-entity id="info-panel" position="1.5 1.2 0" rotation="0 -30 0">
+                <a-entity id="info-panel" position="1.5 1.5 0.5" rotation="0 -20 0">
                     <a-plane width="2.2" height="1.5" color="#000" opacity="0.8">
                         <a-text value="TRAJE AFRO HEROICO" align="center" position="0 0.5 0.01" width="2"
                             color="#fff"></a-text>
@@ -117,7 +117,7 @@
             <a-entity mixin="vidrio" position="0 2.05 0"></a-entity>
             <a-entity id="traje-2" gltf-model="#modelo-traje-2" position="0 1.5 0" scale="1.5 1.5 1.5"
                 shadow="cast: true" class="clickable">
-                <a-entity id="info-panel-2" position="1.5 1.2 0" rotation="0 -30 0">
+                <a-entity id="info-panel-2" position="1.5 1.5 0.5" rotation="0 -20 0">
                     <a-plane width="2.2" height="1.5" color="#000" opacity="0.8">
                         <a-text value="COLECCION AFRO - TRAJE 2" align="center" position="0 0.5 0.01" width="2"
                             color="#fff"></a-text>
@@ -138,7 +138,7 @@
             <a-entity mixin="vidrio" position="0 2.05 0"></a-entity>
             <a-entity id="traje-3" gltf-model="#modelo-traje-3" position="0 0.8 0" scale="1.5 1.5 1.5"
                 shadow="cast: true" class="clickable">
-                <a-entity id="info-panel-3" position="1.5 1.2 0" rotation="0 -30 0">
+                <a-entity id="info-panel-3" position="-1.5 1.5 0.5" rotation="0 20 0">
                     <a-plane width="2.2" height="1.5" color="#000" opacity="0.8">
                         <a-text value="TRAJE VERDE TRADICIONAL" align="center" position="0 0.5 0.01" width="2"
                             color="#fff"></a-text>
@@ -159,7 +159,7 @@
             <a-entity mixin="vidrio" position="0 2.05 0"></a-entity>
             <a-entity id="traje-4" gltf-model="#modelo-traje-4" position="0 0.7 0" scale="1.5 1.5 1.5"
                 shadow="cast: true" class="clickable">
-                <a-entity id="info-panel-4" position="1.5 1.2 0" rotation="0 -30 0">
+                <a-entity id="info-panel-4" position="1.5 1.5 0.5" rotation="0 -20 0">
                     <a-plane width="2.2" height="1.5" color="#000" opacity="0.8">
                         <a-text value="TRAJE MORADO CEREMONIAL" align="center" position="0 0.5 0.01" width="2"
                             color="#fff"></a-text>
@@ -180,7 +180,7 @@
             <a-entity mixin="vidrio" position="0 2.05 0"></a-entity>
             <a-entity id="traje-5" gltf-model="#modelo-traje-5" position="0 0.7 0" scale="2.2 2.2 2.2"
                 shadow="cast: true" class="clickable">
-                <a-entity id="info-panel-5" position="1.5 1.2 0" rotation="0 -30 0">
+                <a-entity id="info-panel-5" position="-1.5 1.5 0.5" rotation="0 20 0">
                     <a-plane width="2.2" height="1.5" color="#000" opacity="0.8">
                         <a-text value="TRAJE 5 - LEGADO" align="center" position="0 0.5 0.01" width="2"
                             color="#fff"></a-text>
@@ -195,26 +195,7 @@
                 castShadow="true"></a-light>
         </a-entity>
 
-        <!-- EXHIBICIÓN ESPECIAL: Marimba (POSICIÓN RESTAURADA Y ROTADA - EN EL SUELO) -->
-        <a-entity position="10 0 -7.5">
-            <!-- Modelo en el suelo (sin pedestal ni vidrio) con rotación de 90° -->
-            <a-entity id="marimba-ent" gltf-model="#modelo-marimba" position="0 0.05 0" rotation="0 90 0"
-                scale="1.5 1.5 1.5" shadow="cast: true" class="clickable">
-                <a-entity id="info-panel-marimba" position="1.5 1.5 0" rotation="0 -30 0">
-                    <a-plane width="2.2" height="1.5" color="#000" opacity="0.8">
-                        <a-text value="MARIMBA DE CHONTA" align="center" position="0 0.5 0.01" width="2"
-                            color="#fff"></a-text>
-                        <a-text value="ORIGEN: PacificO Colombiano." position="-1 0.2 0.01" width="1.8"
-                            color="#ccc"></a-text>
-                        <a-text value="SIGNIFICADO: El piano de la selva." position="-1 -0.1 0.01" width="1.8"
-                            color="#ccc"></a-text>
-                    </a-plane>
-                </a-entity>
-            </a-entity>
-            <a-light type="spot" color="#fff" intensity="0.5" position="0 4 0" rotation="-90 0 0"
-                castShadow="true"></a-light>
         </a-entity>
-        drum
 
         <!-- CONTROLES -->
         <a-entity id="rig" position="0 0 5">
