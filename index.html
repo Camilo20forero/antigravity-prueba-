@@ -73,16 +73,9 @@
             <a-box position="-0.6 0 0" width="0.1" height="20" depth="1" color="#5d4037" repeat="1 20"></a-box>
         </a-box>
 
-        <!-- Pilares con Luces de Acento Cálidas -->
-        <a-entity position="-10 0 -10">
-            <a-box position="0 10 0" width="3" height="20" depth="3" color="#3a3a3a"></a-box>
-            <a-light type="point" color="#ffaa00" intensity="0.4" position="2 2 2"></a-light>
-        </a-entity>
-
-        <a-entity position="10 0 -10">
-            <a-box position="0 10 0" width="3" height="20" depth="3" color="#3a3a3a"></a-box>
-            <a-light type="point" color="#ffaa00" intensity="0.4" position="-2 2 2"></a-light>
-        </a-entity>
+        <!-- Pilares Masivos -->
+        <a-box position="-10 10 -10" width="3" height="20" depth="3" color="#3a3a3a"></a-box>
+        <a-box position="10 10 -10" width="3" height="20" depth="3" color="#3a3a3a"></a-box>
 
         <!-- Pilares Masivos -->
         <a-box position="-10 10 10" width="3" height="20" depth="3" color="#3a3a3a"></a-box>
@@ -170,7 +163,7 @@
         <a-entity position="6 0 -10">
             <a-entity mixin="pedestal" position="0 0.4 0"></a-entity>
             <a-entity mixin="vidrio" position="0 2.05 0"></a-entity>
-            <a-entity id="traje-3" gltf-model="#modelo-traje-3" position="0 0.3 0" scale="1.5 1.5 1.5"
+            <a-entity id="traje-3" gltf-model="#modelo-traje-3" position="0 1.8 0" scale="1.5 1.5 1.5"
                 shadow="cast: true" class="clickable">
                 <a-entity id="info-panel-3" position="1.5 1.2 0" rotation="0 -30 0">
                     <a-plane width="2.2" height="1.5" color="#000" opacity="0.8">
