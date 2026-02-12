@@ -38,10 +38,11 @@
 
     <a-scene shadow="type: pcfsoft">
         <a-assets timeout="15000">
-            <a-asset-item id="modelo-traje" src="assets/traje afro pesado.glb"></a-asset-item>
-            <a-asset-item id="modelo-traje-2" src="assets/traje 2 falda roja.glb"></a-asset-item>
-            <a-asset-item id="modelo-traje-3" src="assets/traje 3 verde.glb"></a-asset-item>
-            <a-asset-item id="modelo-traje-4" src="assets/traje 4 morado.glb"></a-asset-item>
+            <a-asset-item id="modelo-traje" src="assets/traje afro pesado.glb?v=2"></a-asset-item>
+            <a-asset-item id="modelo-traje-2" src="assets/traje 2 falda roja.glb?v=2"></a-asset-item>
+            <a-asset-item id="modelo-traje-3" src="assets/traje 3 verde.glb?v=2"></a-asset-item>
+            <a-asset-item id="modelo-traje-4" src="assets/traje 4 morado.glb?v=2"></a-asset-item>
+            <a-asset-item id="modelo-traje-5" src="assets/traje 5.glb?v=2"></a-asset-item>
         </a-assets>
 
         <!-- AMBIENTE Y LUCES (Efecto Galería Monumental) -->
@@ -173,12 +174,25 @@
                 castShadow="true"></a-light>
         </a-entity>
 
-        <!-- EXHIBICIÓN 5: Derecha Cerca -->
+        <!-- EXHIBICIÓN 5: Derecha Cerca (Traje 5) -->
         <a-entity position="8 0 -2">
             <a-entity mixin="pedestal" position="0 0.4 0"></a-entity>
             <a-entity mixin="vidrio" position="0 2.05 0"></a-entity>
-            <a-cylinder position="0 1.6 0" radius="0.4" height="1.5" color="#333" opacity="0.5"></a-cylinder>
-            <!-- Placeholder -->
+            <a-entity id="traje-5" gltf-model="#modelo-traje-5" position="0 1.2 0" scale="1.5 1.5 1.5"
+                shadow="cast: true" class="clickable">
+                <a-entity id="info-panel-5" position="1.5 1.2 0" rotation="0 -30 0">
+                    <a-plane width="2.2" height="1.5" color="#000" opacity="0.8">
+                        <a-text value="TRAJE 5 - LEGADO" align="center" position="0 0.5 0.01" width="2"
+                            color="#fff"></a-text>
+                        <a-text value="HISTORIA: Innovacion ancestral." position="-1 0.2 0.01" width="1.8"
+                            color="#ccc"></a-text>
+                        <a-text value="DETALLES: Texturas contemporaneas." position="-1 -0.1 0.01" width="1.8"
+                            color="#ccc"></a-text>
+                    </a-plane>
+                </a-entity>
+            </a-entity>
+            <a-light type="spot" color="#fff" intensity="0.5" position="0 4 0" rotation="-90 0 0"
+                castShadow="true"></a-light>
         </a-entity>
 
         <!-- CONTROLES -->
