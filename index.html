@@ -39,12 +39,14 @@
     <a-scene shadow="type: pcfsoft">
         <a-assets timeout="60000">
             <!-- Modelos 3D -->
-            <a-asset-item id="modelo-traje" src="assets/traje afro pesado.glb?v=3"></a-asset-item>
-            <a-asset-item id="modelo-traje-2" src="assets/traje 2 falda roja.glb?v=3"></a-asset-item>
-            <a-asset-item id="modelo-traje-3" src="assets/traje 3 verde.glb?v=3"></a-asset-item>
-            <a-asset-item id="modelo-traje-4" src="assets/traje 4 morado.glb?v=3"></a-asset-item>
-            <a-asset-item id="modelo-traje-5" src="assets/traje 5.glb?v=3"></a-asset-item>
-            <a-asset-item id="modelo-marimba" src="assets/Marimba.glb?v=9"></a-asset-item>
+            <a-asset-item id="modelo-traje" src="assets/traje afro pesado.glb?v=10"></a-asset-item>
+            <a-asset-item id="modelo-traje-2" src="assets/traje 2 falda roja.glb?v=10"></a-asset-item>
+            <a-asset-item id="modelo-traje-3" src="assets/traje 3 verde.glb?v=10"></a-asset-item>
+            <a-asset-item id="modelo-traje-4" src="assets/traje 4 morado.glb?v=10"></a-asset-item>
+            <a-asset-item id="modelo-traje-5" src="assets/traje 5.glb?v=10"></a-asset-item>
+            <a-asset-item id="modelo-marimba" src="assets/Marimba.glb?v=10"></a-asset-item>
+            <a-asset-item id="modelo-tambor" src="assets/tambor.glb?v=1"></a-asset-item>
+            drum
 
             <!-- Mixins para vitrinas -->
             <a-mixin id="pedestal" geometry="primitive: cylinder; radius: 0.8; height: 0.8"
@@ -144,11 +146,19 @@
                 castShadow="true"></a-light>
         </a-entity>
 
-        <!-- EXHIBICIÓN ESPECIAL: Marimba (POSICIÓN RESTAURADA Y ROTADA - EN EL SUELO) -->
+        <!-- EXHIBICIÓN ESPECIAL: Marimba (Fondo Derecha - En el Suelo) -->
         <a-entity position="10 0 -7.5">
-            <!-- Modelo en el suelo (sin pedestal ni vidrio) con rotación de 180° -->
             <a-entity id="marimba-ent" gltf-model="#modelo-marimba" position="0 0.05 0" rotation="0 180 0"
                 scale="1.5 1.5 1.5" shadow="cast: true" class="clickable">
+            </a-entity>
+            <a-light type="spot" color="#fff" intensity="0.5" position="0 4 0" rotation="-90 0 0"
+                castShadow="true"></a-light>
+        </a-entity>
+
+        <!-- EXHIBICIÓN ESPECIAL: Tambor (Frente Izquierda - En el Suelo) -->
+        <a-entity position="-10 0 7.5">
+            <a-entity id="tambor-ent" gltf-model="#modelo-tambor" position="0 0.05 0" scale="1.5 1.5 1.5"
+                shadow="cast: true" class="clickable">
             </a-entity>
             <a-light type="spot" color="#fff" intensity="0.5" position="0 4 0" rotation="-90 0 0"
                 castShadow="true"></a-light>
