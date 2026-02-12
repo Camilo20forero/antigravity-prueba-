@@ -59,17 +59,53 @@
         <a-plane position="0 0 0" rotation="-90 0 0" width="40" height="40" color="#555" roughness="0.6" metalness="0.2"
             shadow="receive: true"></a-plane>
 
-        <!-- Muros monumentales de concreto -->
-        <a-box position="0 10 -15" width="40" height="20" depth="1" color="#444" roughness="1"></a-box>
-        <!-- Muro fondo -->
-        <a-box position="-15 10 0" width="1" height="20" depth="40" color="#333" roughness="1"></a-box>
-        <!-- Muro Izq -->
-        <a-box position="15 10 0" width="1" height="20" depth="40" color="#333" roughness="1"></a-box> <!-- Muro Der -->
+        <!-- Muros monumentales de concreto con detalles en madera -->
+        <a-box position="0 10 -15" width="40" height="20" depth="1" color="#444" roughness="1">
+            <a-box position="0 0 0.6" width="40" height="1" depth="0.1" color="#5d4037"></a-box> <!-- Detalle Madera -->
+        </a-box>
+
+        <a-box position="-15 10 0" width="1" height="20" depth="40" color="#333" roughness="1">
+            <a-box position="0.6 0 0" width="0.1" height="20" depth="1" color="#5d4037" repeat="1 20"></a-box>
+            <!-- Detalle Madera -->
+        </a-box>
+
+        <a-box position="15 10 0" width="1" height="20" depth="40" color="#333" roughness="1">
+            <a-box position="-0.6 0 0" width="0.1" height="20" depth="1" color="#5d4037" repeat="1 20"></a-box>
+        </a-box>
+
+        <!-- Pilares con Luces de Acento Cálidas -->
+        <a-entity position="-10 0 -10">
+            <a-box position="0 10 0" width="3" height="20" depth="3" color="#3a3a3a"></a-box>
+            <a-light type="point" color="#ffaa00" intensity="0.4" position="2 2 2"></a-light>
+        </a-entity>
+
+        <a-entity position="10 0 -10">
+            <a-box position="0 10 0" width="3" height="20" depth="3" color="#3a3a3a"></a-box>
+            <a-light type="point" color="#ffaa00" intensity="0.4" position="-2 2 2"></a-light>
+        </a-entity>
 
         <!-- Pilares Masivos -->
-        <a-box position="-10 10 -10" width="3" height="20" depth="3" color="#3a3a3a"></a-box>
-        <a-box position="10 10 -10" width="3" height="20" depth="3" color="#3a3a3a"></a-box>
         <a-box position="-10 10 10" width="3" height="20" depth="3" color="#3a3a3a"></a-box>
+
+        <!-- VEGETACIÓN (BIOFILIA) -->
+        <!-- Maceteros de concreto con palmeras estilizadas -->
+        <a-entity position="-12 0 -5">
+            <a-box width="2" height="1" depth="2" color="#444" position="0 0.5 0"></a-box>
+            <a-entity position="0 1 0">
+                <a-cylinder radius="0.1" height="3" color="#3e2723"></a-cylinder> <!-- Tronco -->
+                <a-sphere color="#2e7d32" radius="1.2" scale="1 0.2 1" position="0 1.5 0"></a-sphere> <!-- Hojas -->
+                <a-sphere color="#2e7d32" radius="1" scale="1 0.2 1" position="0 1.8 0" rotation="0 45 0"></a-sphere>
+            </a-entity>
+        </a-entity>
+
+        <a-entity position="12 0 -5">
+            <a-box width="2" height="1" depth="2" color="#444" position="0 0.5 0"></a-box>
+            <a-entity position="0 1 0">
+                <a-cylinder radius="0.1" height="3" color="#3e2723"></a-cylinder>
+                <a-sphere color="#2e7d32" radius="1.2" scale="1 0.2 1" position="0 1.5 0"></a-sphere>
+                <a-sphere color="#2e7d32" radius="1" scale="1 0.2 1" position="0 1.8 0" rotation="0 45 0"></a-sphere>
+            </a-entity>
+        </a-entity>
 
         <!-- Techo con tragaluz (Clerestory effect) -->
         <a-box position="0 20 0" width="40" height="1" depth="40" color="#222"></a-box>
