@@ -230,6 +230,25 @@
                 castShadow="true"></a-light>
         </a-entity>
 
+        <!-- EXHIBICIÓN ESPECIAL: Tambor (SIMÉTRICA A LA MARIMBA - EN EL SUELO JUNTO AL PILAR FRONTAL) -->
+        <a-entity position="-10 0 7.5">
+            <a-entity id="tambor-ent" gltf-model="#modelo-tambor" position="0 0.05 0" rotation="0 90 0"
+                scale="1.5 1.5 1.5" shadow="cast: true" class="clickable" toggle-info>
+                <a-entity class="info-panel" position="2.4 2.8 0" look-at="#rig" visible="false">
+                    <a-plane width="1.5" height="0.9" color="#000" opacity="0.9">
+                        <a-text value="TAMBOR TRADICIONAL" align="center" position="0 0.35 0.01" width="1.4"
+                            color="#fff"></a-text>
+                        <a-text value="El latido de la tierra." align="center" position="0 0.1 0.01" width="1.1"
+                            color="#ccc"></a-text>
+                        <a-text value="Comunicacion ancestral." align="center" position="0 -0.15 0.01" width="1.1"
+                            color="#ccc"></a-text>
+                    </a-plane>
+                </a-entity>
+            </a-entity>
+            <a-light type="spot" color="#fff" intensity="0.5" position="0 4 0" rotation="-90 0 0"
+                castShadow="true"></a-light>
+        </a-entity>
+
         <!-- CONTROLES -->
         <a-entity id="rig" position="0 0 5">
             <a-camera look-controls wasd-controls position="0 1.6 0">
