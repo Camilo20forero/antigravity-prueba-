@@ -4,10 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Museo Afro-Colombiano - Realidad Virtual</title>
+    <title>Museo Afro-Colombiano - Brutalismo Moderno</title>
     <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-    <script
-        src="https://unpkg.com/aframe-environment-component@1.3.2/dist/aframe-environment-component.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
     <style>
         body {
@@ -22,19 +20,20 @@
             z-index: 100;
             color: white;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.7);
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 4px;
             pointer-events: none;
+            border-left: 4px solid #fff;
         }
     </style>
 </head>
 
 <body>
     <div class="ui-overlay">
-        <h1>Museo de Trajes Bogotá</h1>
-        <p>Casa Colonial - Colección Afro</p>
-        <p><small>Usa WASD para moverte y el mouse para mirar</small></p>
+        <h1>MUSEO DE TRAJES</h1>
+        <p>Exhibición Brutalista - Colección Afro</p>
+        <p><small>WASD: Moverse | Mouse: Mirar</small></p>
     </div>
 
     <a-scene shadow="type: pcfsoft">
@@ -42,87 +41,111 @@
             <a-asset-item id="modelo-traje" src="assets/traje afro pesado.glb"></a-asset-item>
         </a-assets>
 
-        <!-- Script para detectar errores -->
-        <script>
-            document.querySelector('#modelo-traje').addEventListener('model-error', function () {
-                alert("Error: No se pudo cargar el archivo assets/traje afro pesado.glb. Revisa el nombre y que este en GitHub.");
-            });
-        </script>
+        <!-- AMBIENTE Y LUCES (Efecto Galería Monumental) -->
+        <a-sky color="#222"></a-sky>
+        <a-light type="ambient" color="#444"></a-light>
 
-        <!-- CIELO Y AMBIENTE -->
-        <a-sky color="#87CEEB"></a-sky>
-        <a-light type="ambient" color="#BBB"></a-light>
-        <a-light type="directional" color="#FFF" intensity="0.6" position="-1 4 3" castShadow="true"></a-light>
+        <!-- Rayos de luz desde las ventanas altas -->
+        <a-light type="directional" color="#fff" intensity="0.8" position="5 10 5" castShadow="true"
+            shadow-camera-left="-15" shadow-camera-right="15" shadow-camera-top="15"
+            shadow-camera-bottom="-15"></a-light>
+        <a-light type="point" color="#fff" intensity="0.3" position="0 8 0"></a-light>
 
-        <!-- ESTRUCTURA COLONIAL (PATIO CENTRAL) -->
+        <!-- ARQUITECTURA BRUTALISTA -->
 
-        <!-- Piso de Terracota (Baldosa de Barro) -->
-        <a-plane position="0 0 0" rotation="-90 0 0" width="20" height="20" color="#a0522d" roughness="1"
+        <!-- Suelo de concreto pulido -->
+        <a-plane position="0 0 0" rotation="-90 0 0" width="40" height="40" color="#555" roughness="0.6" metalness="0.2"
             shadow="receive: true"></a-plane>
 
-        <!-- Paredes Blancas (Estilo Cal) -->
-        <a-box position="0 2.5 -6" width="12" height="5" depth="0.2" color="#F4F4F4"
-            shadow="cast: true; receive: true"></a-box>
-        <a-box position="-6 2.5 0" width="0.2" height="5" depth="12" color="#F4F4F4"
-            shadow="cast: true; receive: true"></a-box>
-        <a-box position="6 2.5 0" width="0.2" height="5" depth="12" color="#F4F4F4"
-            shadow="cast: true; receive: true"></a-box>
+        <!-- Muros monumentales de concreto -->
+        <a-box position="0 10 -15" width="40" height="20" depth="1" color="#444" roughness="1"></a-box>
+        <!-- Muro fondo -->
+        <a-box position="-15 10 0" width="1" height="20" depth="40" color="#333" roughness="1"></a-box>
+        <!-- Muro Izq -->
+        <a-box position="15 10 0" width="1" height="20" depth="40" color="#333" roughness="1"></a-box> <!-- Muro Der -->
 
-        <!-- Columnas de Madera -->
-        <a-cylinder position="-5 1.5 -5" radius="0.15" height="3" color="#4a2c2a"></a-cylinder>
-        <a-cylinder position="5 1.5 -5" radius="0.15" height="3" color="#4a2c2a"></a-cylinder>
-        <a-cylinder position="-5 1.5 5" radius="0.15" height="3" color="#4a2c2a"></a-cylinder>
-        <a-cylinder position="5 1.5 5" radius="0.15" height="3" color="#4a2c2a"></a-cylinder>
+        <!-- Pilares Masivos -->
+        <a-box position="-10 10 -10" width="3" height="20" depth="3" color="#3a3a3a"></a-box>
+        <a-box position="10 10 -10" width="3" height="20" depth="3" color="#3a3a3a"></a-box>
+        <a-box position="-10 10 10" width="3" height="20" depth="3" color="#3a3a3a"></a-box>
 
-        <!-- Vigas Superiores -->
-        <a-box position="0 3 -5" width="10" height="0.2" depth="0.3" color="#4a2c2a"></a-box>
-        <a-box position="0 3 5" width="10" height="0.2" depth="0.3" color="#4a2c2a"></a-box>
-        <a-box position="-5 3 0" width="0.3" height="0.2" depth="10" color="#4a2c2a"></a-box>
-        <a-box position="5 3 0" width="0.3" height="0.2" depth="10" color="#4a2c2a"></a-box>
+        <!-- Techo con tragaluz (Clerestory effect) -->
+        <a-box position="0 20 0" width="40" height="1" depth="40" color="#222"></a-box>
+        <!-- Hueco para luz -->
+        <a-box position="0 18 -10" width="30" height="0.5" depth="5" color="#fff" material="shader: flat; opacity: 0.1"
+            transparent="true"></a-box>
 
-        <!-- EXHIBICIÓN CENTRAL -->
-        <a-entity id="traje-afro" gltf-model="#modelo-traje" position="0 0.1 -4" scale="1 1 1" class="clickable"
-            shadow="cast: true">
+        <!-- SISTEMA DE EXHIBICIÓN (CILINDROS DE CONCRETO Y VIDRIO) -->
 
-            <!-- PANEL DE INFORMACIÓN (Estilo Madera/Papel Antiguo) -->
-            <a-entity id="info-panel" position="1.6 1.6 0.2" rotation="0 -30 0">
-                <a-plane width="2.5" height="2" color="#2c1b0e" opacity="0.9"></a-plane>
-                <a-plane width="2.4" height="1.9" position="0 0 0.01" color="#f5deb3"></a-plane>
+        <!-- Mixin para vitrinas -->
+        <a-assets>
+            <a-mixin id="pedestal" geometry="primitive: cylinder; radius: 0.8; height: 0.8"
+                material="color: #666; roughness: 1" shadow="cast: true; receive: true"></a-mixin>
+            <a-mixin id="vidrio" geometry="primitive: cylinder; radius: 0.8; height: 2.5; open-ended: true"
+                material="color: #fff; opacity: 0.2; transparent: true; side: double"></a-mixin>
+        </a-assets>
 
-                <a-text value="COLECCION AFRO-COLOMBIANA" align="center" position="0 0.8 0.02" width="2.2"
-                    color="#2c1b0e" font="mozillavr"></a-text>
-
-                <a-text value="HISTORIA" position="-1.1 0.45 0.02" width="1.5" color="#7e4a35"
-                    font="mozillavr"></a-text>
-                <a-text
-                    value="Representa la resistencia y tradicion de las comunidades de Bogota. Cada fibra narra un legado de libertad."
-                    position="-1.1 0.25 0.02" width="2.1" color="#2c1b0e" wrap-count="35"></a-text>
-
-                <a-text value="FABRICACION" position="-1.1 -0.15 0.02" width="1.5" color="#7e4a35"
-                    font="mozillavr"></a-text>
-                <a-text
-                    value="Tejidos manuales con fibras naturales y simbolismos ancestrales que definen la estetica afro-andina."
-                    position="-1.1 -0.35 0.02" width="2.1" color="#2c1b0e" wrap-count="35"></a-text>
-
-                <a-text value="Museo de Trajes de Bogota" position="0 -0.8 0.02" align="center" width="1.5"
-                    color="#2c1b0e"></a-text>
+        <!-- EXHIBICIÓN 1: CENTRAL (Modelo Detallado) -->
+        <a-entity position="0 0 -5">
+            <a-entity mixin="pedestal" position="0 0.4 0"></a-entity>
+            <a-entity mixin="vidrio" position="0 2.05 0"></a-entity>
+            <a-entity id="traje-principal" gltf-model="#modelo-traje" position="0 0.8 0" scale="0.8 0.8 0.8"
+                shadow="cast: true" class="clickable">
+                <!-- INFO PANEL MINIMALISTA -->
+                <a-entity id="info-panel" position="1.5 1.2 0" rotation="0 -30 0">
+                    <a-plane width="2.2" height="1.5" color="#000" opacity="0.8">
+                        <a-text value="TRAJE AFRO HEROICO" align="center" position="0 0.5 0.01" width="2"
+                            color="#fff"></a-text>
+                        <a-text value="HISTORIA: Resistencia y legado." position="-1 0.2 0.01" width="1.8"
+                            color="#ccc"></a-text>
+                        <a-text value="FABRICACION: Fibras naturales." position="-1 -0.1 0.01" width="1.8"
+                            color="#ccc"></a-text>
+                    </a-plane>
+                </a-entity>
             </a-entity>
+            <a-light type="spot" color="#fff" intensity="0.5" position="0 4 0" rotation="-90 0 0"
+                castShadow="true"></a-light>
         </a-entity>
 
-        <!-- Player / Camera -->
-        <a-entity id="rig" position="0 0 2">
+        <!-- EXHIBICIÓN 2: Izquierda Fondo -->
+        <a-entity position="-6 0 -10">
+            <a-entity mixin="pedestal" position="0 0.4 0"></a-entity>
+            <a-entity mixin="vidrio" position="0 2.05 0"></a-entity>
+            <a-cylinder position="0 1.6 0" radius="0.4" height="1.5" color="#333" opacity="0.5"></a-cylinder>
+            <!-- Placeholder -->
+        </a-entity>
+
+        <!-- EXHIBICIÓN 3: Derecha Fondo -->
+        <a-entity position="6 0 -10">
+            <a-entity mixin="pedestal" position="0 0.4 0"></a-entity>
+            <a-entity mixin="vidrio" position="0 2.05 0"></a-entity>
+            <a-cylinder position="0 1.6 0" radius="0.4" height="1.5" color="#333" opacity="0.5"></a-cylinder>
+            <!-- Placeholder -->
+        </a-entity>
+
+        <!-- EXHIBICIÓN 4: Izquierda Cerca -->
+        <a-entity position="-8 0 -2">
+            <a-entity mixin="pedestal" position="0 0.4 0"></a-entity>
+            <a-entity mixin="vidrio" position="0 2.05 0"></a-entity>
+            <a-cylinder position="0 1.6 0" radius="0.4" height="1.5" color="#333" opacity="0.5"></a-cylinder>
+            <!-- Placeholder -->
+        </a-entity>
+
+        <!-- EXHIBICIÓN 5: Derecha Cerca -->
+        <a-entity position="8 0 -2">
+            <a-entity mixin="pedestal" position="0 0.4 0"></a-entity>
+            <a-entity mixin="vidrio" position="0 2.05 0"></a-entity>
+            <a-cylinder position="0 1.6 0" radius="0.4" height="1.5" color="#333" opacity="0.5"></a-cylinder>
+            <!-- Placeholder -->
+        </a-entity>
+
+        <!-- CONTROLES -->
+        <a-entity id="rig" position="0 0 5">
             <a-camera look-controls wasd-controls position="0 1.6 0">
-                <a-cursor id="cursor"
-                    animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
-                    event-set__mouseenter="_event: mouseenter; color: #7e4a35"
-                    event-set__mouseleave="_event: mouseleave; color: black" raycaster="objects: .clickable">
-                </a-cursor>
+                <a-cursor id="cursor" color="#fff" raycaster="objects: .clickable"></a-cursor>
             </a-camera>
         </a-entity>
 
-        <!-- Luces focalizadas para el traje -->
-        <a-light type="spot" color="#FFF" intensity="0.8" position="0 4 -4" rotation="-90 0 0"
-            castShadow="true"></a-light>
     </a-scene>
 </body>
 
