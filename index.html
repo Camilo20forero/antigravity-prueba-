@@ -27,6 +27,18 @@
             border-left: 4px solid #fff;
         }
     </style>
+    <script>
+        // COMPONENTE: Mostrar/Ocultar panel al hacer click
+        AFRAME.registerComponent('toggle-panel', {
+            schema: { target: { type: 'selector' } },
+            init: function () {
+                this.el.addEventListener('click', () => {
+                    var isVisible = this.data.target.getAttribute('visible');
+                    this.data.target.setAttribute('visible', !isVisible);
+                });
+            }
+        });
+    </script>
 </head>
 
 <body>
@@ -45,8 +57,6 @@
             <a-asset-item id="modelo-traje-4" src="assets/traje 4 morado.glb?v=10"></a-asset-item>
             <a-asset-item id="modelo-traje-5" src="assets/traje 5.glb?v=10"></a-asset-item>
             <a-asset-item id="modelo-marimba" src="assets/Marimba.glb?v=10"></a-asset-item>
-            <a-asset-item id="modelo-tambor" src="assets/tambor.glb?v=1"></a-asset-item>
-            drum
 
             <!-- Mixins para vitrinas -->
             <a-mixin id="pedestal" geometry="primitive: cylinder; radius: 0.8; height: 0.8"
@@ -96,8 +106,22 @@
             <a-entity mixin="pedestal" position="0 0.4 0"></a-entity>
             <a-entity mixin="vidrio" position="0 2.05 0"></a-entity>
             <a-entity id="traje-principal" gltf-model="#modelo-traje" position="0 0.8 0" scale="1.5 1.5 1.5"
-                shadow="cast: true" class="clickable">
+                shadow="cast: true" class="clickable" toggle-panel="target: #info-panel">
+                <!-- INFO PANEL (Oculto por defecto) -->
+                <a-entity id="info-panel" position="1.5 1.2 0" rotation="0 -30 0" visible="false">
+                    <a-plane width="2.2" height="1.5" color="#000" opacity="0.8">
+                        <a-text value="TRAJE AFRO HEROICO" align="center" position="0 0.5 0.01" width="2"
+                            color="#fff"></a-text>
+                        <a-text value="HISTORIA: Resistencia y legado." position="-1 0.2 0.01" width="1.8"
+                            color="#ccc"></a-text>
+                        <a-text value="FABRICACION: Fibras naturales." position="-1 -0.1 0.01" width="1.8"
+                            color="#ccc"></a-text>
+                        <a-text value="(CLICK PARA CERRAR)" position="0 -0.5 0.01" align="center" width="1.2"
+                            color="#777"></a-text>
+                    </a-plane>
+                </a-entity>
             </a-entity>
+            drum
             <a-light type="spot" color="#fff" intensity="0.5" position="0 4 0" rotation="-90 0 0"
                 castShadow="true"></a-light>
         </a-entity>
@@ -107,8 +131,19 @@
             <a-entity mixin="pedestal" position="0 0.4 0"></a-entity>
             <a-entity mixin="vidrio" position="0 2.05 0"></a-entity>
             <a-entity id="traje-2" gltf-model="#modelo-traje-2" position="0 1.5 0" scale="1.5 1.5 1.5"
-                shadow="cast: true" class="clickable">
+                shadow="cast: true" class="clickable" toggle-panel="target: #info-panel-2">
+                <a-entity id="info-panel-2" position="1.5 1.2 0" rotation="0 -30 0" visible="false">
+                    <a-plane width="2.2" height="1.5" color="#000" opacity="0.8">
+                        <a-text value="COLECCION AFRO - TRAJE 2" align="center" position="0 0.5 0.01" width="2"
+                            color="#fff"></a-text>
+                        <a-text value="HISTORIA: Tradicion y color vivo." position="-1 0.2 0.01" width="1.8"
+                            color="#ccc"></a-text>
+                        <a-text value="TECNICA: Bordado manual." position="-1 -0.1 0.01" width="1.8"
+                            color="#ccc"></a-text>
+                    </a-plane>
+                </a-entity>
             </a-entity>
+            drum
             <a-light type="spot" color="#fff" intensity="0.5" position="0 4 0" rotation="-90 0 0"
                 castShadow="true"></a-light>
         </a-entity>
@@ -118,8 +153,19 @@
             <a-entity mixin="pedestal" position="0 0.4 0"></a-entity>
             <a-entity mixin="vidrio" position="0 2.05 0"></a-entity>
             <a-entity id="traje-3" gltf-model="#modelo-traje-3" position="0 0.8 0" scale="1.5 1.5 1.5"
-                shadow="cast: true" class="clickable">
+                shadow="cast: true" class="clickable" toggle-panel="target: #info-panel-3">
+                <a-entity id="info-panel-3" position="1.5 1.2 0" rotation="0 -30 0" visible="false">
+                    <a-plane width="2.2" height="1.5" color="#000" opacity="0.8">
+                        <a-text value="TRAJE VERDE TRADICIONAL" align="center" position="0 0.5 0.01" width="2"
+                            color="#fff"></a-text>
+                        <a-text value="HISTORIA: Legado de la selva y mar." position="-1 0.2 0.01" width="1.8"
+                            color="#ccc"></a-text>
+                        <a-text value="TECNICA: Tejido de punto." position="-1 -0.1 0.01" width="1.8"
+                            color="#ccc"></a-text>
+                    </a-plane>
+                </a-entity>
             </a-entity>
+            drum
             <a-light type="spot" color="#fff" intensity="0.5" position="0 4 0" rotation="-90 0 0"
                 castShadow="true"></a-light>
         </a-entity>
@@ -129,8 +175,19 @@
             <a-entity mixin="pedestal" position="0 0.4 0"></a-entity>
             <a-entity mixin="vidrio" position="0 2.05 0"></a-entity>
             <a-entity id="traje-4" gltf-model="#modelo-traje-4" position="0 0.7 0" scale="1.5 1.5 1.5"
-                shadow="cast: true" class="clickable">
+                shadow="cast: true" class="clickable" toggle-panel="target: #info-panel-4">
+                <a-entity id="info-panel-4" position="1.5 1.2 0" rotation="0 -30 0" visible="false">
+                    <a-plane width="2.2" height="1.5" color="#000" opacity="0.8">
+                        <a-text value="TRAJE MORADO CEREMONIAL" align="center" position="0 0.5 0.01" width="2"
+                            color="#fff"></a-text>
+                        <a-text value="HISTORIA: Rituales y celebracion." position="-1 0.2 0.01" width="1.8"
+                            color="#ccc"></a-text>
+                        <a-text value="DETALLES: Terciopelo y bordados." position="-1 -0.1 0.01" width="1.8"
+                            color="#ccc"></a-text>
+                    </a-plane>
+                </a-entity>
             </a-entity>
+            drum
             <a-light type="spot" color="#fff" intensity="0.5" position="0 4 0" rotation="-90 0 0"
                 castShadow="true"></a-light>
         </a-entity>
@@ -140,26 +197,41 @@
             <a-entity mixin="pedestal" position="0 0.4 0"></a-entity>
             <a-entity mixin="vidrio" position="0 2.05 0"></a-entity>
             <a-entity id="traje-5" gltf-model="#modelo-traje-5" position="0 0.7 0" scale="2.2 2.2 2.2"
-                shadow="cast: true" class="clickable">
+                shadow="cast: true" class="clickable" toggle-panel="target: #info-panel-5">
+                <a-entity id="info-panel-5" position="1.5 1.2 0" rotation="0 -30 0" visible="false">
+                    <a-plane width="2.2" height="1.5" color="#000" opacity="0.8">
+                        <a-text value="TRAJE 5 - LEGADO" align="center" position="0 0.5 0.01" width="2"
+                            color="#fff"></a-text>
+                        <a-text value="HISTORIA: Innovacion ancestral." position="-1 0.2 0.01" width="1.8"
+                            color="#ccc"></a-text>
+                        <a-text value="DETALLES: Texturas contemporaneas." position="-1 -0.1 0.01" width="1.8"
+                            color="#ccc"></a-text>
+                    </a-plane>
+                </a-entity>
             </a-entity>
+            drum
             <a-light type="spot" color="#fff" intensity="0.5" position="0 4 0" rotation="-90 0 0"
                 castShadow="true"></a-light>
         </a-entity>
 
-        <!-- EXHIBICIÓN ESPECIAL: Marimba (Fondo Derecha - En el Suelo) -->
+        <!-- EXHIBICIÓN ESPECIAL: Marimba (POSICIÓN RESTAURADA Y ROTADA - EN EL SUELO) -->
         <a-entity position="10 0 -7.5">
+            <!-- Modelo en el suelo (sin pedestal ni vidrio) con rotación de 180° -->
             <a-entity id="marimba-ent" gltf-model="#modelo-marimba" position="0 0.05 0" rotation="0 180 0"
-                scale="1.5 1.5 1.5" shadow="cast: true" class="clickable">
+                scale="1.5 1.5 1.5" shadow="cast: true" class="clickable" toggle-panel="target: #info-panel-marimba">
+                <a-entity id="info-panel-marimba" position="1.5 1.5 0" rotation="0 -30 0" visible="false">
+                    <a-plane width="2.2" height="1.5" color="#000" opacity="0.8">
+                        <a-text value="MARIMBA DE CHONTA" align="center" position="0 0.5 0.01" width="2"
+                            color="#fff"></a-text>
+                        <a-text value="ORIGEN: PacificO Colombiano." position="-1 0.2 0.01" width="1.8"
+                            color="#ccc"></a-text>
+                        <a-text value="SIGNIFICADO: El piano de la selva." position="-1 -0.1 0.01" width="1.8"
+                            color="#ccc"></a-text>
+                    </a-plane>
+                </a-entity>
             </a-entity>
-            <a-light type="spot" color="#fff" intensity="0.5" position="0 4 0" rotation="-90 0 0"
-                castShadow="true"></a-light>
-        </a-entity>
-
-        <!-- EXHIBICIÓN ESPECIAL: Tambor (Frente Izquierda - En el Suelo) -->
-        <a-entity position="-10 0 7.5">
-            <a-entity id="tambor-ent" gltf-model="#modelo-tambor" position="0 0.05 0" scale="1.5 1.5 1.5"
-                shadow="cast: true" class="clickable">
-            </a-entity>
+            drum
+            drum
             <a-light type="spot" color="#fff" intensity="0.5" position="0 4 0" rotation="-90 0 0"
                 castShadow="true"></a-light>
         </a-entity>
@@ -167,9 +239,18 @@
         <!-- CONTROLES -->
         <a-entity id="rig" position="0 0 5">
             <a-camera look-controls wasd-controls position="0 1.6 0">
-                <a-cursor id="cursor" color="#fff" raycaster="objects: .clickable"></a-cursor>
+                <!-- Cursor con Raycaster de proximidad (4m) y feedback visual -->
+                <a-cursor id="cursor" color="#fff" raycaster="objects: .clickable; far: 4"
+                    animation__fusing="property: scale; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500; startEvents: fusing"
+                    animation__mouseleave="property: scale; to: 1 1 1; dur: 500; startEvents: mouseleave"
+                    event-set__hoveron="_event: mouseenter; color: #f1c40f"
+                    event-set__hoveroff="_event: mouseleave; color: #fff">
+                </a-cursor>
             </a-camera>
         </a-entity>
+        drum
+        drum
+        drum
 
     </a-scene>
 </body>
