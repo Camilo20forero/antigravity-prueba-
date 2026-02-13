@@ -112,13 +112,19 @@
             <a-entity id="traje-principal" gltf-model="#modelo-traje" position="0 0.8 0" scale="1.5 1.5 1.5"
                 shadow="cast: true" class="clickable" toggle-info>
                 <a-entity class="info-panel" position="0 0.8 1.4" look-at="#rig" visible="false">
-                    <a-plane width="1.5" height="0.9" color="#000" opacity="0.9">
-                        <a-text value="TRAJE AFRO HEROICO" align="center" position="0 0.35 0.01" width="1.4"
-                            color="#fff"></a-text>
-                        <a-text value="Resistencia y legado historico." align="center" position="0 0.1 0.01" width="1.1"
-                            color="#ccc"></a-text>
-                        <a-text value="Fibras naturales de la region." align="center" position="0 -0.15 0.01"
-                            width="1.1" color="#ccc"></a-text>
+                    <a-plane width="2.4" height="1.2" color="#000" opacity="0.9">
+                        <!-- Lado Izquierdo: Texto -->
+                        <a-text value="TRAJE DE PALENQUERA" align="left" position="-1.1 0.45 0.01" width="1.6"
+                            color="#fff" font="kelsonsans"></a-text>
+                        <a-text value="San Basilio de Palenque, el primer pueblo libre de America." align="left"
+                            position="-1.1 0.25 0.01" width="1.3" color="#bbb"></a-text>
+                        <a-text
+                            value="Esta prenda mezcla herencia africana con tecnicas coloniales. Confeccionada 'a ojo' por costureras locales, los moldes se heredan por generaciones para asegurar un ajuste perfecto al tobillo."
+                            align="left" position="-1.1 -0.15 0.01" width="1.3" color="#ccc"></a-text>
+
+                        <!-- Lado Derecho: Imagen -->
+                        <a-image src="assets/traje naranja.jpeg?v=1" position="0.5 0 0.02" width="1.0"
+                            height="0.8"></a-image>
                     </a-plane>
                 </a-entity>
             </a-entity>
