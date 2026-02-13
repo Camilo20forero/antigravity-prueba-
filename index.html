@@ -359,13 +359,32 @@
             <a-entity id="tambor-ent" gltf-model="#modelo-tambor" position="0 0.05 0" rotation="0 90 0"
                 scale="1.5 1.5 1.5" shadow="cast: true" class="clickable" toggle-info>
                 <a-entity class="info-panel" position="-2.4 2.8 0" look-at="#rig" visible="false">
-                    <a-plane width="1.5" height="0.9" color="#000" opacity="0.9">
-                        <a-text value="TAMBOR TRADICIONAL" align="center" position="0 0.35 0.01" width="1.4"
+                    <!-- Golden border frame -->
+                    <a-plane width="2.3" height="2.9" color="#d4af37" opacity="1.0" position="0 0 -0.01"></a-plane>
+                    <!-- Frosted glass background -->
+                    <a-plane width="2.2" height="2.8" color="#1a1a1a" opacity="0.88" position="0 0 0">
+                        <a-text value="BOMBO MACHO O GOLPEADOR" align="center" position="0 1.3 0.01" width="2.0"
                             color="#fff"></a-text>
-                        <a-text value="Ritmo de la tierra." align="center" position="0 0.1 0.01" width="1.1"
-                            color="#ccc"></a-text>
-                        <a-text value="Madera y cuero tensado." align="center" position="0 -0.15 0.01" width="1.1"
-                            color="#ccc"></a-text>
+                        <!-- Golden accent line under title -->
+                        <a-plane width="1.8" height="0.01" color="#d4af37" position="0 1.15 0.01"></a-plane>
+                        <a-text value="Pacifico sur Colombia." align="center" position="0 1.0 0.01" width="2.0"
+                            color="#ffd700"></a-text>
+                        <a-text
+                            value="Es elaborado en balso, se compone de dos membranas que se percuten con taco o (tambien"
+                            align="left" position="-1.05 0.70 0.01" width="2.0" color="#e0e0e0"></a-text>
+                        <a-text
+                            value="llamado boliche) o con la mano. Su funcion principal es marcar la base ritmica y el pulso"
+                            align="left" position="-1.05 0.55 0.01" width="2.0" color="#e0e0e0"></a-text>
+                        <a-text value="en generos tradicionales como el Currulao, el Bambuco Viejo y la Juga."
+                            align="left" position="-1.05 0.40 0.01" width="2.0" color="#e0e0e0"></a-text>
+                        <a-text
+                            value="En la musica del Pacifico, el Bombo Macho casi nunca esta solo. Se llama 'Macho' porque"
+                            align="left" position="-1.05 0.15 0.01" width="2.0" color="#e0e0e0"></a-text>
+                        <a-text
+                            value="tiene un sonido mas robusto y seco que su pareja, el Bombo Hembra, que suele tener un"
+                            align="left" position="-1.05 0.00 0.01" width="2.0" color="#e0e0e0"></a-text>
+                        <a-text value="sonido mas agudo y se encarga de realizar los 'repiques' o adornos ritmicos."
+                            align="left" position="-1.05 -0.15 0.01" width="2.0" color="#e0e0e0"></a-text>
                     </a-plane>
                 </a-entity>
             </a-entity>
